@@ -20,7 +20,7 @@ app.post('/github-webhook', (req, res) => {
   console.log(payload);
   if (payload.pusher) {
     const commitMessage = payload.head_commit.message;
-    const commitAuthor = payload.head_commit.author.name;
+    const commitAuthor = payload.head_commit.committer.username;
     const commitUrl = payload.head_commit.url;
     
     const message = `🚀 **Commit mới!**\n📌 **Người commit**: ${commitAuthor}\n📝 **Message**: ${commitMessage}\n🔗 **Xem chi tiết**: [Click vào đây](${commitUrl})`;
