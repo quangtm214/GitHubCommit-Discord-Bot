@@ -17,6 +17,7 @@ client.once('ready', () => {
 // Khi GitHub gửi webhook
 app.post('/github-webhook', (req, res) => {
   const payload = req.body;
+  console.log(payload);
   if (payload.pusher) {
     const commitMessage = payload.head_commit.message;
     const commitAuthor = payload.head_commit.author.name;
