@@ -29,7 +29,11 @@ app.post('/github-webhook', (req, res) => {
       channel.send(message);
     }
   }
-  res.sendStatus(200);
+  res.sendStatus(200).send('✅ Webhook received successfully');
+});
+
+app.get('/', (req, res) => {
+  res.send('Hello! GitHub Webhook Bot is running 🚀');
 });
 
 client.login(process.env.DISCORD_TOKEN);
